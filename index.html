@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Scout — Радар вигідних лотів на OLX</title>
+    <link rel="icon" type="image/png" href="avatar.png">
     <meta name="description" content="Telegram-бот який моніторить OLX 24/7 і знаходить найвигідніші лоти першим">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -22,6 +23,25 @@
 
         html {
             scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch; /* Для плавності на iOS */
+        }
+
+        /* Фікс слейша 24/7 */
+        .slash-fix {
+            opacity: 0.3;
+            margin: 0 10px;
+            font-weight: 300;
+        }
+
+        /* Підсвітка для телефонів при скролі */
+        .feature-card.reveal {
+            border-color: rgba(168, 85, 247, 0.5);
+            transform: translateY(-4px);
+            box-shadow: var(--glow-purple);
+        }
+        
+        .feature-card.reveal::before {
+            opacity: 1;
         }
 
         * {
@@ -569,7 +589,7 @@
         <!-- Stats -->
         <div class="stats">
             <div class="stat">
-                <div class="stat-num">24<span style="opacity:0.4;margin:0 2px">/</span>7</div>
+                <div class="stat-num">24<span class="slash-fix">/</span>7</div>
                 <div class="stat-label">МОНІТОРИНГ</div>
             </div>
             <div class="stat">
@@ -642,5 +662,22 @@
             Digital Scout © 2026 · Зроблено в Україні 🇺🇦 · <a href="https://t.me/digital_scout_bot">@digital_scout_bot</a>
         </footer>
     </div>
+    <script>
+        // Intersection Observer для підсвітки плиток на мобільних
+        const observerOptions = { threshold: 0.6 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                } else {
+                    entry.target.classList.remove('reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
