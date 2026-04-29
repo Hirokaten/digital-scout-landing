@@ -657,10 +657,40 @@
             <div class="cta-sub">Безкоштовно · Без реєстрації · Telegram</div>
         </div>
 
-        <!-- Footer -->
         <footer class="footer">
             Digital Scout © 2026 · Зроблено в Україні 🇺🇦 · <a href="https://t.me/digital_scout_bot">@digital_scout_bot</a>
         </footer>
     </div>
+
+    <script>
+        // 1. Страховка для плавного скролу на ноутах
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 2. Підсвітка плиток для мобільних (чутливість підкручено)
+        const observerOptions = { 
+            threshold: 0.2 // Плитка засвітиться, як тільки покажеться на 20%
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                } else {
+                    entry.target.classList.remove('reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
