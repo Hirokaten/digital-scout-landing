@@ -229,9 +229,10 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 12px;
-            letter-spacing: 2px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 1px;
             color: var(--neon-blue);
         }
 
@@ -345,8 +346,8 @@
         }
 
         .feature-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
             font-weight: 700;
             letter-spacing: 1px;
             color: var(--text-primary);
@@ -406,10 +407,13 @@
         }
 
         .step-title {
-            font-size: 14px;
-            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace !important;
+            font-size: 15px;
+            font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .step-desc {
@@ -430,7 +434,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'JetBrains Mono', monospace;
             font-size: clamp(14px, 3vw, 16px);
             font-weight: 700;
             letter-spacing: 2px;
@@ -556,8 +560,9 @@
         <header class="header">
             <img src="avatar.png" alt="Digital Scout" class="logo-image" onerror="this.style.display='none'">
             <div class="scan-line">SCAN ACTIVE</div>
-            <h1 class="logo-text">Digital<br>Scout</h1>
-            <p class="tagline">Радар вигідних лотів на OLX.<br>Знаходить <span>DEAL</span> першим — поки інші гортають стрічку.</p>
+            <h1 class="logo-text" style="margin-bottom: 10px;">Digital<br>Scout</h1>
+            <h2 style="font-family: 'JetBrains Mono', monospace; font-size: clamp(16px, 4vw, 22px); color: var(--neon-blue); margin-bottom: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Твій автономний радар на OLX</h2>
+            <p class="tagline">Поки ти займаєшся своїми справами, ШІ-скрипт моніторить ринок 24/7. Знаходить будь-які гарячі лоти за секунди: від брендового шмоту й оригінальних парфумів до гаджетів і <span>рідкісних аксесуарів</span>.</p>
             
             <div class="cta-section" style="padding: 40px 0 0 0; margin-bottom: 20px;">
                 <a href="https://t.me/digital_scout_bot?start=landing" class="cta-button" target="_blank">
@@ -609,7 +614,7 @@
                 <div class="stat-label">МОНІТОРИНГ</div>
             </div>
             <div class="stat">
-                <div class="stat-num">~30с</div>
+                <div class="stat-num">~30s</div>
                 <div class="stat-label">ЧАС РЕАКЦІЇ</div>
             </div>
             <div class="stat">
@@ -634,6 +639,72 @@
                 <span class="feature-icon">⚡</span>
                 <div class="feature-title">BURST MODE</div>
                 <div class="feature-desc">При виявленні вигідного лоту — прискорене сканування кожні 30 секунд.</div>
+            </div>
+        </div>
+
+        <!-- Categories (Replacement for Table) -->
+        <div class="how-it-works" style="margin-bottom: 60px;">
+            <h2 class="section-title">Що шукає радар</h2>
+            <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <div class="feature-card">
+                    <span class="feature-icon">💻</span>
+                    <div class="feature-title">TECH & GADGETS</div>
+                    <div class="feature-desc">Смартфони, ноутбуки, периферія за низом ринку.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">👟</span>
+                    <div class="feature-title">FASHION & APPAREL</div>
+                    <div class="feature-desc">Лімітовані кросівки, трендовий одяг, вінтаж.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">✨</span>
+                    <div class="feature-title">BEAUTY & PERFUME</div>
+                    <div class="feature-desc">Оригінальні парфуми, рідкісна косметика чи догляд.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <div class="feature-title">UNIVERSAL SEARCH</div>
+                    <div class="feature-desc">Будь-який цивільний товар. Задаєш ціль — радар працює.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Tags -->
+        <div class="how-it-works" style="margin-bottom: 60px;">
+            <h2 class="section-title">Система міток</h2>
+            <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+                <div class="feature-card" style="padding: 20px 16px;">
+                    <div class="feature-title" style="font-size: 15px; margin-bottom: 5px;">🆕 NEW ITEM</div>
+                    <div class="feature-desc" style="font-size: 11px;">Реально свіже оголошення.</div>
+                </div>
+                <div class="feature-card" style="padding: 20px 16px;">
+                    <div class="feature-title" style="font-size: 15px; margin-bottom: 5px;">🆙 UPDATED</div>
+                    <div class="feature-desc" style="font-size: 11px;">Старий лот, який підняли в топ.</div>
+                </div>
+                <div class="feature-card" style="padding: 20px 16px;">
+                    <div class="feature-title" style="font-size: 15px; margin-bottom: 5px;">📉 PRICE DROP</div>
+                    <div class="feature-desc" style="font-size: 11px;">Ціна щойно знизилась.</div>
+                </div>
+                <div class="feature-card" style="padding: 20px 16px; border-color: rgba(255, 45, 149, 0.3);">
+                    <div class="feature-title" style="font-size: 15px; margin-bottom: 5px; color: var(--neon-pink);">🔥 DEAL</div>
+                    <div class="feature-desc" style="font-size: 11px;">Ціна нижча за ринок на 15%+.</div>
+                </div>
+                <div class="feature-card" style="padding: 20px 16px;">
+                    <div class="feature-title" style="font-size: 15px; margin-bottom: 5px;">⏳ < 7 DAYS</div>
+                    <div class="feature-desc" style="font-size: 11px;">Продавець нещодавно на OLX.</div>
+                </div>
+                <div class="feature-card" style="padding: 20px 16px;">
+                    <div class="feature-title" style="font-size: 15px; margin-bottom: 5px;">👤 < 30 DAYS</div>
+                    <div class="feature-desc" style="font-size: 11px;">Новий акаунт продавця.</div>
+                </div>
+                <div class="feature-card" style="padding: 20px 16px; border-color: rgba(255, 0, 0, 0.3);">
+                    <div class="feature-title" style="font-size: 15px; margin-bottom: 5px; color: #ff4444;">❗ ANOMALY</div>
+                    <div class="feature-desc" style="font-size: 11px;">Занижена на 65%+. Можливий скам.</div>
+                </div>
+                <div class="feature-card" style="padding: 20px 16px; border-color: rgba(255, 0, 0, 0.5);">
+                    <div class="feature-title" style="font-size: 15px; margin-bottom: 5px; color: #ff0000;">🚨 HIGH RISK</div>
+                    <div class="feature-desc" style="font-size: 11px;">Аномальна ціна + новий продавець.</div>
+                </div>
             </div>
         </div>
 
@@ -674,7 +745,11 @@
         </div>
 
         <footer class="footer">
-            Digital Scout © 2026 · Зроблено в Україні 🇺🇦 · <a href="https://t.me/digital_scout_bot">@digital_scout_bot</a>
+            <div style="max-width: 700px; margin: 0 auto 20px auto; font-size: 10px; opacity: 0.5; line-height: 1.6; text-align: justify;">
+                <strong>Disclaimer:</strong> Digital Scout — це незалежний аналітичний інструмент. Ми не маємо офіційного зв'язку з платформою OLX. Радар лише збирає, фільтрує та порівнює відкриті дані. Ми не даємо 100% гарантій безпеки угод. Фінальне рішення, перевірка товару та відповідальність за переказ коштів завжди лежить на користувачеві. Будьте обережні з передоплатами.
+            </div>
+            Digital Scout © 2026 · Зроблено в Україні 🇺🇦 · <a href="https://t.me/digital_scout_bot">@digital_scout_bot</a><br>
+            <a href="https://telegra.ph/Privacy-Policy---Digital-Scout-05-07" target="_blank" style="font-size: 11px; margin-top: 15px; display: inline-block; opacity: 0.7;">Privacy Policy</a>
         </footer>
     </div>
 
