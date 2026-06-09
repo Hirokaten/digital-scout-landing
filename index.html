@@ -43,8 +43,7 @@
         /* Підсвітка для телефонів при скролі */
         .feature-card.reveal {
             border-color: rgba(168, 85, 247, 0.5);
-            transform: translateY(-4px);
-            box-shadow: var(--glow-purple);
+            /* Прибрали transform та тінь, щоб уникнути стрибків інтерфейсу під час скролу на мобільних */
         }
         
         .feature-card.reveal::before {
@@ -397,7 +396,8 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 32px;
             font-weight: 900;
-            color: rgba(0, 240, 255, 0.15);
+            color: var(--neon-blue);
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
             min-width: 50px;
             line-height: 1;
         }
@@ -566,9 +566,14 @@
             
             <div class="cta-section" style="padding: 40px 0 0 0; margin-bottom: 20px;">
                 <a href="https://t.me/digital_scout_bot?start=landing" class="cta-button" target="_blank">
-                    🔍 Запустити Скаута
+                    🔍 Спробувати безкоштовно
                 </a>
                 <div class="cta-sub">Безкоштовно · Без реєстрації · Telegram</div>
+                <div style="margin-top: 30px; padding: 20px; border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 8px; background: rgba(18, 18, 26, 0.5); display: inline-block; text-align: center;">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--text-primary); margin-bottom: 8px;">Вартість підписки:</div>
+                    <div style="font-family: 'Orbitron', sans-serif; font-size: 24px; font-weight: 700; color: var(--neon-blue);">99 грн/міс <span style="font-size: 12px; color: var(--text-dim); font-weight: 400; font-family: 'JetBrains Mono', monospace;">(для перших 20)</span></div>
+                    <div style="font-size: 12px; color: var(--text-dim); margin-top: 4px;">Стандартна ціна: 150 грн/міс</div>
+                </div>
             </div>
         </header>
 
@@ -580,7 +585,7 @@
             </div>
             <div class="deal-item">
                 <div class="deal-badge badge-deal">🔥 DEAL (-38%)</div>
-                <div class="deal-title">iPhone 14 Pro 128GB Neverlock</div>
+                <div class="deal-title">📱 iPhone 14 Pro 128GB Neverlock</div>
                 <div class="deal-meta">
                     <span class="deal-price">18 500 грн</span>
                     <span>📍 Київ</span>
@@ -588,8 +593,8 @@
                 </div>
             </div>
             <div class="deal-item">
-                <div class="deal-badge badge-deal">🔥 DEAL (-29%)</div>
-                <div class="deal-title">MacBook Pro 13" 2020 M1 256GB</div>
+                <div class="deal-badge" style="background: rgba(0, 240, 255, 0.15); color: var(--neon-blue); border: 1px solid rgba(0, 240, 255, 0.3);">📉 PRICE DROP</div>
+                <div class="deal-title">💻 MacBook Pro 13" 2020 M1 256GB</div>
                 <div class="deal-meta">
                     <span class="deal-price">21 000 грн</span>
                     <span>📍 Львів</span>
@@ -597,10 +602,10 @@
                 </div>
             </div>
             <div class="deal-item">
-                <div class="deal-badge badge-deal">🔥 DEAL (-44%)</div>
-                <div class="deal-title">PlayStation 5 Digital Edition</div>
+                <div class="deal-badge" style="background: rgba(255, 0, 0, 0.15); color: #ff0000; border: 1px solid rgba(255, 0, 0, 0.3);">🚨 HIGH RISK</div>
+                <div class="deal-title">🎮 PlayStation 5 Digital Edition</div>
                 <div class="deal-meta">
-                    <span class="deal-price">12 900 грн</span>
+                    <span class="deal-price">6 900 грн</span>
                     <span>📍 Дніпро</span>
                     <span>🕐 8 хв тому</span>
                 </div>
@@ -614,7 +619,7 @@
                 <div class="stat-label">МОНІТОРИНГ</div>
             </div>
             <div class="stat">
-                <div class="stat-num">~30s</div>
+                <div class="stat-num">60s</div>
                 <div class="stat-label">ЧАС РЕАКЦІЇ</div>
             </div>
             <div class="stat">
@@ -648,38 +653,35 @@
             <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
                 <div class="feature-card">
                     <span class="feature-icon">💻</span>
-                    <div class="feature-title">TECH & GADGETS</div>
+                    <div class="feature-title">ТЕХНІКА ТА ГАДЖЕТИ</div>
                     <div class="feature-desc">Смартфони, ноутбуки, периферія за низом ринку.</div>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">👟</span>
-                    <div class="feature-title">FASHION & APPAREL</div>
+                    <div class="feature-title">ОДЯГ ТА ВЗУТТЯ</div>
                     <div class="feature-desc">Лімітовані кросівки, трендовий одяг, вінтаж.</div>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">✨</span>
-                    <div class="feature-title">BEAUTY & PERFUME</div>
+                    <div class="feature-title">КРАСА ТА ПАРФУМЕРІЯ</div>
                     <div class="feature-desc">Оригінальні парфуми, рідкісна косметика чи догляд.</div>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🔄</span>
-                    <div class="feature-title">UNIVERSAL SEARCH</div>
-                    <div class="feature-desc">Будь-який цивільний товар. Задаєш ціль — радар працює.</div>
+                    <div class="feature-title">УНІВЕРСАЛЬНИЙ ПОШУК</div>
+                    <div class="feature-desc">Будь-який інший товар. Задаєш ціль — радар працює.</div>
                 </div>
             </div>
         </div>
 
         <!-- System Tags -->
         <div class="how-it-works" style="margin-bottom: 60px;">
-            <h2 class="section-title">Система міток</h2>
+            <h2 class="section-title" style="margin-bottom: 15px;">Система міток</h2>
+            <p style="color: var(--text-dim); font-size: 14px; max-width: 600px; margin: 0 auto 40px auto; line-height: 1.6;">Щоб ти не витрачав час на аналіз кожного лота, Скаут автоматично перевіряє продавця та історію ціни. Одразу бачиш, де реальний профіт, а де можливий скам.</p>
             <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
                 <div class="feature-card" style="padding: 20px 16px;">
                     <div class="feature-title" style="font-size: 15px; margin-bottom: 5px;">🆕 NEW ITEM</div>
                     <div class="feature-desc" style="font-size: 11px;">Реально свіже оголошення.</div>
-                </div>
-                <div class="feature-card" style="padding: 20px 16px;">
-                    <div class="feature-title" style="font-size: 15px; margin-bottom: 5px;">🆙 UPDATED</div>
-                    <div class="feature-desc" style="font-size: 11px;">Старий лот, який підняли в топ.</div>
                 </div>
                 <div class="feature-card" style="padding: 20px 16px;">
                     <div class="feature-title" style="font-size: 15px; margin-bottom: 5px;">📉 PRICE DROP</div>
@@ -688,18 +690,6 @@
                 <div class="feature-card" style="padding: 20px 16px; border-color: rgba(255, 45, 149, 0.3);">
                     <div class="feature-title" style="font-size: 15px; margin-bottom: 5px; color: var(--neon-pink);">🔥 DEAL</div>
                     <div class="feature-desc" style="font-size: 11px;">Ціна нижча за ринок на 15%+.</div>
-                </div>
-                <div class="feature-card" style="padding: 20px 16px;">
-                    <div class="feature-title" style="font-size: 15px; margin-bottom: 5px;">⏳ < 7 DAYS</div>
-                    <div class="feature-desc" style="font-size: 11px;">Продавець нещодавно на OLX.</div>
-                </div>
-                <div class="feature-card" style="padding: 20px 16px;">
-                    <div class="feature-title" style="font-size: 15px; margin-bottom: 5px;">👤 < 30 DAYS</div>
-                    <div class="feature-desc" style="font-size: 11px;">Новий акаунт продавця.</div>
-                </div>
-                <div class="feature-card" style="padding: 20px 16px; border-color: rgba(255, 0, 0, 0.3);">
-                    <div class="feature-title" style="font-size: 15px; margin-bottom: 5px; color: #ff4444;">❗ ANOMALY</div>
-                    <div class="feature-desc" style="font-size: 11px;">Занижена на 65%+. Можливий скам.</div>
                 </div>
                 <div class="feature-card" style="padding: 20px 16px; border-color: rgba(255, 0, 0, 0.5);">
                     <div class="feature-title" style="font-size: 15px; margin-bottom: 5px; color: #ff0000;">🚨 HIGH RISK</div>
@@ -715,7 +705,7 @@
                 <div class="step">
                     <div class="step-num">01</div>
                     <div class="step-content">
-                        <div class="step-title">Вкажи що шукаєш</div>
+                        <div class="step-title">Вкажи, що шукаєш</div>
                         <div class="step-desc">Назва, бюджет, місто. Наприклад: iPhone 14 Pro, 15-25к, Київ.</div>
                     </div>
                 </div>
@@ -730,7 +720,7 @@
                     <div class="step-num">03</div>
                     <div class="step-content">
                         <div class="step-title">Отримуєш пуш в Telegram</div>
-                        <div class="step-desc">Новий лот з ціною і посиланням. Перший побачив — перший забрав.</div>
+                        <div class="step-desc">Новий лот з мітками, ціною і посиланням. Перший побачив — перший забрав.</div>
                     </div>
                 </div>
             </div>
@@ -739,7 +729,7 @@
         <!-- CTA -->
         <div class="cta-section">
             <a href="https://t.me/digital_scout_bot?start=landing" class="cta-button" target="_blank">
-                🔍 Запустити Скаута
+                🔍 Спробувати безкоштовно
             </a>
             <div class="cta-sub">Безкоштовно · Без реєстрації · Telegram</div>
         </div>
