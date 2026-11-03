@@ -19,6 +19,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Unbounded для заголовків, Onest для тексту. Обидва з повною кирилицею -->
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+        // Ховаємо повідомлення чату до анімації, тільки якщо вона буде
+        if (window.IntersectionObserver && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.classList.add('anim');
+        }
+    </script>
     <style>
         /* Кольори взяті з аватарки: нічне небо радара, бірюзовий промінь, жовта стрілка */
         :root {
@@ -291,11 +297,19 @@
             to { opacity: 1; transform: none; }
         }
 
-        .msg-me { animation: arrive 0.4s ease-out 0.3s both; }
-        .msg-bot { animation: arrive 0.4s ease-out 1.1s both; }
-        .msg-bot .lot:nth-child(2) { animation: arrive 0.4s ease-out 1.3s both; }
-        .msg-bot .lot:nth-child(3) { animation: arrive 0.4s ease-out 1.7s both; }
-        .msg-bot .lot:nth-child(4) { animation: arrive 0.4s ease-out 2.1s both; }
+        /* На телефоні чат нижче першого екрана, тому стартуємо, коли він видно (клас play ставить скрипт).
+           Без скрипта або з вимкненою анімацією повідомлення просто видно одразу */
+        .anim .msg-me,
+        .anim .msg-bot,
+        .anim .msg-bot .lot {
+            opacity: 0;
+        }
+
+        .play .msg-me { animation: arrive 0.4s ease-out 0.2s both; }
+        .play .msg-bot { animation: arrive 0.4s ease-out 1s both; }
+        .play .msg-bot .lot:nth-child(2) { animation: arrive 0.4s ease-out 1.2s both; }
+        .play .msg-bot .lot:nth-child(3) { animation: arrive 0.4s ease-out 1.6s both; }
+        .play .msg-bot .lot:nth-child(4) { animation: arrive 0.4s ease-out 2s both; }
 
         /* Розділи */
         .block {
@@ -934,6 +948,18 @@
         </footer>
     </div>
 
+<script>
+    if (document.documentElement.classList.contains('anim')) {
+        const chat = document.querySelector('.chat');
+        const watch = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                chat.classList.add('play');
+                watch.disconnect();
+            }
+        }, { threshold: 0.6 });
+        watch.observe(chat);
+    }
+</script>
 <script data-goatcounter="https://digitalscout.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
