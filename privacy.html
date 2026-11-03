@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Політика конфіденційності · Digital Scout</title>
+    <link rel="icon" type="image/png" href="avatar.png">
+    <meta name="description" content="Які дані зберігає Digital Scout, кому вони передаються і як їх видалити.">
+    <meta name="theme-color" content="#00f0ff">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f0ff;
+            --neon-purple: #a855f7;
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --text-primary: #e0e0ec;
+            --text-dim: #8a8aa0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        /* Та сама сітка, що на головній, але нерухома: довгий текст під рухомим фоном читати важко */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .back {
+            display: inline-block;
+            font-size: 12px;
+            color: var(--neon-blue);
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(26px, 6vw, 40px);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .updated {
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-bottom: 32px;
+        }
+
+        .card {
+            border: 1px solid rgba(168, 85, 247, 0.15);
+            border-radius: 12px;
+            background: var(--bg-card);
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--neon-blue);
+            margin-bottom: 14px;
+        }
+
+        p, li {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        p + p {
+            margin-top: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--neon-purple);
+        }
+
+        a {
+            color: var(--neon-blue);
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 11px;
+            color: var(--text-dim);
+        }
+
+        .footer a {
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            .card {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+
+    <div class="container">
+        <a href="./" class="back">← Digital Scout</a>
+
+        <h1>Політика конфіденційності та умови</h1>
+        <div class="updated">Оновлено 3 листопада 2026</div>
+
+        <div class="card">
+            <h2>Що таке Digital Scout</h2>
+            <p>Digital Scout це Telegram-бот <a href="https://t.me/digital_scout_bot">@digital_scout_bot</a>, який стежить за новими оголошеннями на OLX за твоїм запитом і надсилає їх у Telegram.</p>
+            <p>Бот не пов'язаний з OLX і не схвалений OLX Group. Він працює лише з оголошеннями, які на OLX і так відкриті для всіх.</p>
+        </div>
+
+        <div class="card">
+            <h2>Які дані бот зберігає</h2>
+            <ul>
+                <li>Telegram ID, ім'я та нік з твого профілю Telegram</li>
+                <li>дату першого запуску й останньої активності в боті</li>
+                <li>пошуковий запит, фільтри, місто та інші налаштування пошуку</li>
+                <li>які оголошення тобі вже надіслано, щоб не повторюватись</li>
+                <li>статус Premium, його строк і суму оплати</li>
+                <li>повідомлення, які ти пишеш у «💡 Ідеї та Баги», і скріншоти оплати. Їх бачить власник бота, щоб відповісти чи активувати Premium</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Кому передаються дані</h2>
+            <ul>
+                <li><strong>AI-сервіси.</strong> Тексти оголошень з OLX (назва, опис, ціна) бот надсилає Google Gemini, Groq і Cloudflare, щоб оцінити ризики й скласти питання до продавця. Твій ID, ім'я чи пошуковий запит їм не передаються.</li>
+                <li><strong>Оплата.</strong> Платежі обробляють Monobank або Telegram Stars за своїми правилами.</li>
+                <li><strong>DEAL-канал.</strong> Вигідні оголошення, знайдені безкоштовним пошуком, бот може опублікувати в каналі <a href="https://t.me/digital_scout_deal">@digital_scout_deal</a>. Публікується лише саме оголошення з OLX, без даних про тебе. Знахідки з Premium нікуди не публікуються.</li>
+            </ul>
+            <p>Більше нікому дані не передаються і не продаються.</p>
+        </div>
+
+        <div class="card">
+            <h2>Цей сайт</h2>
+            <p>Сайт рахує відвідування через <a href="https://www.goatcounter.com/">GoatCounter</a>: скільки людей зайшло і звідки. Він не використовує cookies і не збирає дані, за якими можна впізнати конкретну людину.</p>
+        </div>
+
+        <div class="card">
+            <h2>Як видалити дані</h2>
+            <p>Напиши в боті в «💡 Ідеї та Баги», що хочеш видалити свої дані, і їх видалять.</p>
+        </div>
+
+        <div class="card">
+            <h2>Відмова від відповідальності</h2>
+            <p>Digital Scout дає підказки, а не гарантії.</p>
+            <ul style="margin-top: 12px;">
+                <li>Мітки 🔥 DEAL і попередження про ризики бот ставить автоматично, порівнюючи ціни схожих оголошень і текст оголошення. Вони можуть помилятися.</li>
+                <li>Бот не перевіряє продавців, справжність і стан товару.</li>
+                <li>Питання до продавця складає AI, і вони можуть бути неточними.</li>
+                <li>Бот може пропустити чи затримати оголошення, якщо OLX або Telegram працюють з перебоями.</li>
+            </ul>
+            <p style="margin-top: 12px;">Рішення про покупку й оплату за тобою, на власний ризик. Власник бота не відповідає за угоди, втрати чи збитки, пов'язані з інформацією з бота.</p>
+        </div>
+
+        <footer class="footer">
+            Digital Scout © 2026 · <a href="./">Головна</a> · <a href="https://t.me/digital_scout_bot">@digital_scout_bot</a>
+        </footer>
+    </div>
+<script data-goatcounter="https://digitalscout.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
