@@ -430,6 +430,77 @@
             background: #1f4a66;
         }
 
+        /* Що пропускає: зліва що й чому, справа приклад заголовка з OLX, закреслений, бо він не прийде */
+        .skips {
+            max-width: 980px;
+        }
+
+        .skips h3 {
+            margin: 0 0 8px;
+        }
+
+        .skips h3 ~ h3 {
+            margin-top: 44px;
+        }
+
+        .skip {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            column-gap: 48px;
+            padding: 18px 0;
+            border-top: 1px solid var(--hair);
+        }
+
+        .skip b,
+        .skip-short b {
+            display: block;
+            font-weight: 600;
+        }
+
+        .skip span,
+        .skip-short span {
+            display: block;
+            font-size: 16px;
+            color: var(--mist);
+        }
+
+        .skip-eg {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        .skip-eg s {
+            font-size: 15px;
+            color: var(--mist);
+            background: var(--deck);
+            padding: 6px 12px;
+            border-radius: 10px;
+            text-decoration-color: var(--flag);
+            text-decoration-thickness: 2px;
+        }
+
+        .skip-short {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 48px;
+        }
+
+        .skip-short > div {
+            padding: 18px 0;
+            border-top: 1px solid var(--hair);
+        }
+
+        .sr {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+        }
+
         /* Кроки */
         .steps {
             list-style: none;
@@ -521,11 +592,58 @@
             background: var(--sweep);
         }
 
+        /* Строки Premium: рядками, як у меню бота, з ціною за день, щоб було видно, що довше вигідніше */
+        .terms {
+            margin: 10px 0 24px;
+            border-top: 1px solid var(--hair);
+        }
+
+        .term {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--hair);
+        }
+
+        .term dt {
+            font-weight: 500;
+            color: var(--mist);
+        }
+
+        .term dd {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            text-align: right;
+        }
+
+        .term b {
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: 26px;
+            line-height: 1.1;
+            white-space: nowrap;
+        }
+
+        .term span {
+            font-size: 14px;
+            color: var(--mist);
+            white-space: nowrap;
+            min-width: 7.5em;
+            text-align: left;
+        }
+
         .plans-note {
-            margin-top: 24px;
+            margin-top: 16px;
             color: var(--mist);
             font-size: 16px;
             max-width: 44em;
+        }
+
+        .plans + .plans-note {
+            margin-top: 28px;
         }
 
         /* Питання */
@@ -643,6 +761,15 @@
                 gap: 28px;
             }
 
+            .skip,
+            .skip-short {
+                grid-template-columns: 1fr;
+            }
+
+            .skip-eg {
+                margin-top: 12px;
+            }
+
             .final {
                 flex-direction: column;
                 align-items: flex-start;
@@ -687,6 +814,21 @@
 
             .final {
                 padding: 32px 20px;
+            }
+
+            .term dd {
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 0;
+            }
+
+            .term span {
+                min-width: 0;
+                text-align: right;
+            }
+
+            .term b {
+                font-size: 22px;
             }
 
             .final .button {
@@ -858,6 +1000,43 @@
             </section>
 
             <section class="block">
+                <h2>Що Скаут пропускає</h2>
+                <p class="intro">Частину оголошень Скаут відсіює сам, щоб у Telegram приходив саме той товар, який ти шукаєш, а не все, де трапилась його назва.</p>
+                <div class="skips">
+                    <h3>Не той товар</h3>
+                    <div class="skip">
+                        <div><b>Аксесуари й запчастини</b><span>Коли шукаєш сам товар, а не чохол чи деталь до нього.</span></div>
+                        <p class="skip-eg"><span class="sr">Наприклад: </span><s>Чохол для Samsung S24</s><s>Дисплей для MacBook Air M1</s></p>
+                    </div>
+                    <div class="skip">
+                        <div><b>Інші версії моделі</b><span>Коли версія є в запиті. Шукаєш Samsung S24 Ultra, тож звичайний S24 і S24+ не прийдуть. Напишеш просто S24, прийдуть усі версії.</span></div>
+                        <p class="skip-eg"><span class="sr">Наприклад: </span><s>Samsung Galaxy S24+ 256GB</s></p>
+                    </div>
+                    <div class="skip">
+                        <div><b>«Куплю» і скупки</b><span>У таких оголошеннях товар не продають, а купують.</span></div>
+                        <p class="skip-eg"><span class="sr">Наприклад: </span><s>Куплю PS5, дорого, швидко</s></p>
+                    </div>
+                    <div class="skip">
+                        <div><b>Оренда й розбирання на деталі</b><span>Товар здають на час або продають по частинах.</span></div>
+                        <p class="skip-eg"><span class="sr">Наприклад: </span><s>Оренда PlayStation 5 на добу</s><s>Ноутбук на запчастини</s></p>
+                    </div>
+                    <div class="skip">
+                        <div><b>Списки з купи моделей</b><span>Магазин перелічує все підряд, а ціна стоїть за найдешевший варіант.</span></div>
+                        <p class="skip-eg"><span class="sr">Наприклад: </span><s>iPhone 13 / 14 / 15, 128/256/512</s></p>
+                    </div>
+
+                    <h3>Щоб не засипати тебе оголошеннями</h3>
+                    <div class="skip-short">
+                        <div><b>Ціна поза бюджетом</b><span>Бюджет вказуєш на старті, змінити його можна в налаштуваннях пошуку.</span></div>
+                        <div><b>Забагато від одного продавця</b><span>Не більше 2 оголошень від одного продавця за добу.</span></div>
+                        <div><b>Старі оголошення, підняті знову</b><span>Не більше 5 за добу: нові важливіші.</span></div>
+                        <div><b>Повтори</b><span>Що вже надіслано, вдруге не прийде. Хіба продавець знизить ціну: тоді оголошення прийде з міткою 📉.</span></div>
+                    </div>
+                </div>
+                <p class="legend-note">Шукаєш саме чохол чи запчастину? Напиши це в запиті, і Скаут їх покаже. Слова, з якими оголошення треба пропускати, можна додати в налаштуваннях пошуку.</p>
+            </section>
+
+            <section class="block">
                 <h2>Як почати</h2>
                 <p class="intro">Займає хвилину, реєстрація й акаунт OLX не потрібні.</p>
                 <ol class="steps">
@@ -878,31 +1057,48 @@
 
             <section class="block">
                 <h2>Скільки коштує</h2>
-                <p class="intro">Перші 3 дні відкрито все, що є в Premium. Далі вирішуєш сам.</p>
+                <p class="intro">Перші 3 дні відкрито все, що є в Premium. Далі Скаут шукає безкоштовно, а Premium можна взяти на день, тиждень чи місяць. Шукаєш одну річ? Часто вистачає тижня.</p>
                 <div class="plans">
                     <div class="plan">
                         <h3>Безкоштовно</h3>
                         <div class="plan-price">0 грн</div>
                         <ul>
                             <li>до 10 оголошень на день</li>
-                            <li>перевірка OLX приблизно раз на 10 хвилин</li>
+                            <li>перевірка OLX приблизно раз на 10 хвилин, вночі раз на 20</li>
                             <li>мітки ціни й ризиків</li>
                             <li>2 перевірки посилань на день</li>
                         </ul>
                     </div>
                     <div class="plan premium">
                         <h3>⭐ Premium</h3>
-                        <div class="plan-price">150 грн <small>на місяць</small></div>
+                        <dl class="terms">
+                            <div class="term">
+                                <dt>Місяць</dt>
+                                <dd><b>150 грн</b><span>≈5 грн за день</span></dd>
+                            </div>
+                            <div class="term">
+                                <dt>Тиждень</dt>
+                                <dd><b>49 грн</b><span>≈7 грн за день</span></dd>
+                            </div>
+                            <div class="term">
+                                <dt>День</dt>
+                                <dd><b>10 грн</b><span></span></dd>
+                            </div>
+                        </dl>
                         <ul>
                             <li>перевірка OLX приблизно щохвилини, а після знайденої знижки ще частіше</li>
+                            <li>твій пошук Скаут перевіряє першим</li>
                             <li>усі знайдені оголошення, без денного ліміту</li>
-                            <li>стан товару прямо в картці: батарея, ремонт, дефекти, розмір</li>
+                            <li>стан товару прямо в картці: батарея, ремонт, дефекти, комплект</li>
                             <li>фільтри, що ховають оголошення після ремонту чи зі слабкою батареєю</li>
+                            <li>знахідки лише твої: у публічний канал вони не потрапляють</li>
                             <li>30 перевірок посилань на день</li>
                         </ul>
                     </div>
                 </div>
-                <p class="plans-note">Оплата раз на місяць через Monobank або Telegram Stars, без автосписань. Хто оформить Premium протягом 3 днів після пробного періоду, отримує ціну 99 грн на місяць назавжди (для перших 20 підписників). За друга, який почне користуватися ботом, дається +7 днів Premium.</p>
+                <p class="plans-note">Оплата карткою будь-якого банку через Monobank або Telegram Stars. Автосписань немає: коли строк закінчиться, Скаут просто продовжить шукати безкоштовно.</p>
+                <p class="plans-note">💎 Хто оформить місяць протягом 3 днів після пробного періоду, платить 99 грн на місяць назавжди. Це лише для перших 20 підписників.</p>
+                <p class="plans-note">🎁 Коли друг за твоїм посиланням пробуде в боті добу й отримає перші 15 оголошень, тобі додається +7 днів Premium. Так можна отримати бонус до 5 разів.</p>
             </section>
 
             <section class="block">
